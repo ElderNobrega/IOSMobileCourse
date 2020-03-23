@@ -9,7 +9,9 @@ self.present(alert, animated: true)
 @IBAction func buttonTapped(_sender: UIButton) {
   let alert = UIAlertController(title: "Warning", message:
                                 "Zombies are loose!", preferredStyle: .alert)
-  let okAction = UIAlertAction(title: "Ok", style: .default, handler: {action -> void in})
+  let okAction = UIAlertAction(title: "Ok", style: .default, handler: {action -> void in
+    //Just dismiss the action sheet                                                                   
+  })
   alert.addAction(okAction)
   self.present(alert, animated: true, completion: nil)
 }
