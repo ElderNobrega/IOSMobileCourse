@@ -10,7 +10,10 @@ self.present(alert, animated: true)
   let alert = UIAlertController(title: "Warning", message:
                                 "Zombies are loose!", preferredStyle: .alert)
   let okAction = UIAlertAction(title: "Ok", style: .default, handler: {action -> void in
-    //Just dismiss the action sheet                                                                   
+    //Just dismiss the action sheet
+    let savedText = alert.textFields![0] as UITextField
+    self.labelResult.text = savedText.text
+
   })
   alert.addAction(okAction)
   self.present(alert, animated: true, completion: nil)
@@ -57,5 +60,26 @@ func callFunctionTwo(){
 // Code here
 }
 
+func ShowAlert(dateTime : String) {
+        let alert = UIAlertController(title: "Selected Date and Time", message: "\(dateTime)", preferredStyle: .alert);
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: { action -> Void in
+            //Just dismiss the action sheet
+        });
+
+        alert.addAction(okAction);
+        self.present(alert, animated: true, completion: nil);
+    }
+
+    @IBAction func getCurrentDateTime(_ sender: UIButton) {
+        let selectedDate: String = dateFormatter.string(from: myDatePicker.date);
+        ShowAlert(dateTime: selectedDate);
+    }
+    
+    @IBAction func dateChanged(_ sender: UIDatePicker) {
+        let selectedDate: String = dateFormatter.string(from: sender.date);
+        ShowAlert(dateTime: selectedDate);
+    }
+    
+}
 
 
